@@ -1,4 +1,4 @@
-#include <assert.h>
+ #include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
@@ -29,7 +29,6 @@ int main(void) {
       abort();
   }
 
-    
   for (int i=2000; i<5000; i++) {
     pi0 = mc_pi(i);
     if (!(fabs(pi0 - M_PI) < 0.4)) {
@@ -38,6 +37,22 @@ int main(void) {
     }
   }
 }
-
+float mc_pi(int a)
+{   float b;
+    float c;
+    float d=0;
+    float e=0;
+    for( int i=0;i<a;i++)
+ {
+     b=frandom();
+     c=frandom();
+  if ((b-0.5)*(b-0.5)+(c-0.5)*(c-0.5)<=0.25)
+  d++;
+  else
+  e++;
+ }
+ float pi = 4*d/(d+e);
+ return pi;
+}
 
 
